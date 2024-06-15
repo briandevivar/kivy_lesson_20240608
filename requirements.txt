@@ -1,0 +1,15 @@
+asyncgui==0.6.1
+asynckivy==0.6.2
+certifi==2024.6.2
+charset-normalizer==3.3.2
+docutils==0.21.2
+ffpyplayer==4.5.1
+idna==3.7
+Kivy==2.3.0
+Kivy-Garden==0.1.5
+kivymd @ https://github.com/kivymd/KivyMD/archive/master.zip#sha256=16aac37c1f54ea0ba6970d478ee9fba286ff916fd0f30186cd96b44e577eb479
+materialyoucolor==2.0.9
+pillow==10.3.0
+Pygments==2.18.0
+requests==2.32.3
+urllib3==2.2.1

@@ -1,0 +1,166 @@
+# FULLSTACKDEVTUTORIALS.COM
+# TOPIC: KIVYMD AND SQLITE3
+# LECTURER: BRIAN DE VIVAR
+# DATE: JUNE 08, 2024
+# YT: https://www.youtube.com/channel/UC3veSIv6YTZ6rK6UEOFmFmg
+WindowManager:
+    name: "window_manager"
+    id: window_manager
+
+    HomeScreen:
+    AddScreen:
+
+<HomeScreen>:
+    name: "home_screen"
+    id: home_screen
+
+    MDBoxLayout:
+        orientation: "vertical"
+        md_bg_color: (237/255, 237/255, 237/255, 1)
+
+        MDTopAppBar:
+            id: top_appbar
+            type: "small"
+            pos_hint: {"center_x": .5, "center_y": .5}
+
+            MDTopAppBarLeadingButtonContainer:
+
+                MDActionTopAppBarButton:
+                    icon: "menu"
+
+            MDTopAppBarTitle:
+                text: "Toy Sale!"
+
+            MDTopAppBarTrailingButtonContainer:
+
+                MDActionTopAppBarButton:
+                    icon: "logout"
+
+        MDBoxLayout:
+            padding: 20
+            orientation: "vertical"
+            md_bg_color: (137/255, 237/255, 237/255, 1)
+
+            MDScrollView:
+
+                MDList:
+                    id: container
+                    spacing: 10
+
+        MDBottomAppBar:
+            id: bottom_appbar
+
+            MDFabBottomAppBarButton:
+                icon: "arrow-left-bold-outline"
+                theme_bg_color: "Custom"
+                md_bg_color: (0, 0, 1, 1)
+                theme_icon_color: "Custom"
+                icon_color: "#ffffff"
+                on_release:
+                    app.root.current = "add_screen"
+                    root.manager.transition.direction = "left"
+
+<AddScreen>:
+    name: "add_screen"
+    id: add_screen
+
+    MDBoxLayout:
+        orientation: "vertical"
+        md_bg_color: (237/255, 237/255, 237/255, 1)
+
+        MDTopAppBar:
+            id: top_appbar
+            type: "small"
+            pos_hint: {"center_x": .5, "center_y": .5}
+
+            MDTopAppBarLeadingButtonContainer:
+
+                MDActionTopAppBarButton:
+                    icon: "menu"
+
+            MDTopAppBarTitle:
+                text: "Toy Sale!"
+
+            MDTopAppBarTrailingButtonContainer:
+
+                MDActionTopAppBarButton:
+                    icon: "logout"
+
+        MDBoxLayout:
+            padding: [10, 50]
+            spacing: 20
+            orientation: "vertical"
+            md_bg_color: (137/255, 237/255, 237/255, 1)
+
+            MDTextField:
+                id: name
+                mode: "filled"
+                required: True
+
+                MDTextFieldHintText:
+                    text: "Toy Name"
+
+            MDTextField:
+                id: description
+                mode: "filled"
+                required: True
+
+                MDTextFieldHintText:
+                    text: "Description"
+
+            MDTextField:
+                id: price
+                mode: "filled"
+                required: True
+
+                MDTextFieldHintText:
+                    text: "Selling Price"
+
+            MDTextField:
+                id: seller
+                mode: "filled"
+                required: True
+
+                MDTextFieldHintText:
+                    text: "Seller's Name"
+
+            MDTextField:
+                id: created
+                mode: "filled"
+                required: True
+                on_focus: app.show_date_picker(self.focus)
+
+                MDTextFieldHintText:
+                    text: "Date Bought"
+
+                MDTextFieldTrailingIcon:
+                    icon: "calendar"
+
+            MDButton:
+                style: "elevated"
+                theme_width: "Custom"
+                height: "50dp"
+                size_hint_x: .5
+                pos_hint: {"center_x": .5, "center_y": .5}
+                on_release: app.add_toy()
+
+                MDButtonIcon:
+                    icon: "content-save"
+                    pos_hint: {"center_x": .4, "center_y": .5}
+
+                MDButtonText:
+                    text: "Add Toy"
+                    pos_hint: {"center_x": .5, "center_y": .5}
+
+        MDBottomAppBar:
+            id: bottom_appbar
+
+            MDFabBottomAppBarButton:
+                icon: "arrow-left-bold-outline"
+                theme_bg_color: "Custom"
+                md_bg_color: (0, 0, 1, 1)
+                theme_icon_color: "Custom"
+                icon_color: "#ffffff"
+                on_release:
+                    app.root.current = "home_screen"
+                    root.manager.transition.direction = "right"
