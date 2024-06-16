@@ -1,3 +1,8 @@
+# FULLSTACKDEVTUTORIALS.COM
+# TOPIC: KIVYMD AND SQLITE3
+# LECTURER: BRIAN DE VIVAR
+# DATE: JUNE 08, 2024
+# YT: https://www.youtube.com/channel/UC3veSIv6YTZ6rK6UEOFmFmg
 CREATE_TABLE = """CREATE TABLE IF NOT EXISTS toys_tbl (
                     id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
                     name TEXT NOT NULL,
@@ -17,6 +22,13 @@ SELECT_ALL_TOYS = """SELECT * FROM toys_tbl"""
 SELECT_TOY_BY_ID = """SELECT * FROM toys_tbl WHERE id = ?"""
 
 UPDATE_TOY_BY_ID = """
-UPDATE toys_tbl set name = ?, description = ?, price = ?, seller = ?, created = ?, updated = ? WHERE id = ?"""
+UPDATE toys_tbl set 
+name = ?, 
+description = ?, 
+price = ?, 
+seller = ?, 
+created = ?, 
+updated = ? 
+WHERE id = ?"""
 
 REMOVE_TOY_BY_ID = """DELETE FROM toys_tbl WHERE id = ?"""

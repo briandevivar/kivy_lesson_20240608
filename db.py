@@ -1,10 +1,15 @@
+# FULLSTACKDEVTUTORIALS.COM
+# TOPIC: KIVYMD AND SQLITE3
+# LECTURER: BRIAN DE VIVAR
+# DATE: JUNE 08, 2024
+# YT: https://www.youtube.com/channel/UC3veSIv6YTZ6rK6UEOFmFmg
 import sqlite3
 import logging
 
 from sqlite3 import Error
 
 from model import ToysModel
-from queries import CREATE_TABLE, INSERT_TOY, SELECT_ALL_TOYS, SELECT_TOY_BY_ID, UPDATE_TOY_BY_ID
+from queries import CREATE_TABLE, INSERT_TOY, SELECT_ALL_TOYS, SELECT_TOY_BY_ID, UPDATE_TOY_BY_ID, REMOVE_TOY_BY_ID
 
 
 class ToysDb:
@@ -57,7 +62,7 @@ class ToysDb:
 
     def remove_toy_by_id(self, toy_id):
         try:
-            self.cur.execute(UPDATE_TOY_BY_ID, toy_id)
+            self.cur.execute(REMOVE_TOY_BY_ID, (toy_id,))
             self.conn.commit()
             return True
         except Error as e:

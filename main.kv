@@ -9,6 +9,7 @@ WindowManager:
 
     HomeScreen:
     AddScreen:
+    UpdateScreen:
 
 <HomeScreen>:
     name: "home_screen"
@@ -151,6 +152,125 @@ WindowManager:
                 MDButtonText:
                     text: "Add Toy"
                     pos_hint: {"center_x": .5, "center_y": .5}
+
+        MDBottomAppBar:
+            id: bottom_appbar
+
+            MDFabBottomAppBarButton:
+                icon: "arrow-left-bold-outline"
+                theme_bg_color: "Custom"
+                md_bg_color: (0, 0, 1, 1)
+                theme_icon_color: "Custom"
+                icon_color: "#ffffff"
+                on_release:
+                    app.root.current = "home_screen"
+                    root.manager.transition.direction = "right"
+
+<UpdateScreen@MDScreen>:
+    name: "update_screen"
+    id: update_screen
+
+    MDBoxLayout:
+        orientation: "vertical"
+        md_bg_color: (237/255, 237/255, 237/255, 1)
+
+        MDTopAppBar:
+            id: top_appbar
+            type: "small"
+            pos_hint: {"center_x": .5, "center_y": .5}
+
+            MDTopAppBarLeadingButtonContainer:
+
+                MDActionTopAppBarButton:
+                    icon: "menu"
+
+            MDTopAppBarTitle:
+                text: "Toy Sale!"
+
+            MDTopAppBarTrailingButtonContainer:
+
+                MDActionTopAppBarButton:
+                    icon: "logout"
+
+        MDBoxLayout:
+            orientation: "vertical"
+            spacing: 20
+            padding: [10, 20]
+            md_bg_color: (137/255, 237/255, 237/255, 1)
+
+            MDTextField:
+                id: u_toy_id
+                mode: "filled"
+                readonly: True
+                adaptive_height: True
+
+                MDTextFieldHintText:
+                    text: "Toy ID"
+
+            MDTextField:
+                id: u_name
+                mode: "filled"
+                required: True
+                adaptive_height: True
+
+                MDTextFieldHintText:
+                    text: "Toy Name"
+
+            MDTextField:
+                id: u_description
+                mode: "filled"
+                required: True
+                adaptive_height: True
+
+                MDTextFieldHintText:
+                    text: "Description"
+
+            MDTextField:
+                id: u_price
+                mode: "filled"
+                required: True
+                adaptive_height: True
+
+                MDTextFieldHintText:
+                    text: "Selling Price"
+
+            MDTextField:
+                id: u_seller
+                mode: "filled"
+                required: True
+                adaptive_height: True
+
+                MDTextFieldHintText:
+                    text: "Seller's Name"
+
+            MDTextField:
+                id: u_created
+                mode: "filled"
+                required: True
+                adaptive_height: True
+                on_focus: app.show_date_picker(self.focus)
+
+                MDTextFieldHintText:
+                    text: "Date Bought"
+
+                MDTextFieldTrailingIcon:
+                    icon: "calendar"
+
+            MDButton:
+                style: "elevated"
+                theme_width: "Custom"
+                size_hint_x: .4
+                pos_hint: {"center_x": .5, "center_y": .5}
+                adaptive_height: True
+                on_release: app.update_toy()
+
+                MDButtonIcon:
+                    icon: "content-save"
+                    pos_hint: {"center_x": .35, "center_y": .5}
+
+                MDButtonText:
+                    text: "Update Toy"
+                    pos_hint: {"center_x": .55, "center_y": .5}
 
         MDBottomAppBar:
             id: bottom_appbar
